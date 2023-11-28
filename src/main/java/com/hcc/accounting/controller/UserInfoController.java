@@ -1,7 +1,6 @@
 package com.hcc.accounting.controller;
 
 import com.hcc.accounting.mapper.UserInfoMapper;
-import com.hcc.accounting.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +17,7 @@ public class UserInfoController {
     }
 
     @GetMapping(path = "v1/users/{id}")
-    public UserInfo getUserInfoById(@PathVariable  Long id) {
+    public com.hcc.accounting.model.UserInfo getUserInfoById(@PathVariable  Long id) {
         return userInfoMapper.getUserInfoById(id);
     }
 }
