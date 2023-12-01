@@ -1,7 +1,9 @@
 package com.hcc.accounting.model;
 
-import java.time.LocalDateTime;
+import lombok.Builder;
 
+import java.time.LocalDateTime;
+@Builder
 public class UserInfo {
     private Long id;
     private String userName;
