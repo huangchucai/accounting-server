@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController {
+    /**
+     * sayHello 方法
+     * @param name 姓名
+     * @param id id
+     * @return string
+     */
     @GetMapping(path = "v1/hello/{name}/{id}")
     public String sayHello(@PathVariable String name, @PathVariable Integer id) {
         val userInfo = UserInfo.builder().userName("hcc").build();

@@ -33,13 +33,19 @@ public class UserController {
     }
 
 
+    /**
+     * 根据用户id获取用户信息
+     * @param id 具体的用户id
+     * @return 返回相应的用户信息
+     */
     @GetMapping(path = "v1/users/{id}")
     @Operation(summary = "根据用户id获取用户信息", description = "返回相应的用户信息",
                responses = {@ApiResponse(responseCode = "200", description = "获取用户信息成功"), @ApiResponse(
                        responseCode = "404", description = "用户不存在")})
     public ResponseEntity<UserInfo> getUserInfoById(@Parameter(description = "具体的用户id") @PathVariable Long id) {
         //        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(userInfoMapper.getUserInfoById(id));
-        //        return ResponseEntity.status(HttpStatus.OK).header("name", "hcc").body(userInfoMapper.getUserInfoById(id));
+        //        return ResponseEntity.status(HttpStatus.OK).header("name", "hcc")
+        //        .body(userInfoMapper.getUserInfoById(id));
         if (id < 0L) {
             throw new InValidParameterException("id不能小于0");
         }

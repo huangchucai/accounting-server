@@ -3,6 +3,7 @@ package com.hcc.accounting.model;
 import lombok.Builder;
 
 import java.time.LocalDateTime;
+
 @Builder
 public class UserInfo {
     private Long id;
@@ -14,6 +15,15 @@ public class UserInfo {
 
     private LocalDateTime updateTime;
 
+    /**
+     * 获取用户信息
+     *
+     * @param id         用户id
+     * @param userName   用户名
+     * @param password   密码
+     * @param createTime 创建时间
+     * @param updateTime 更新时间
+     */
     public UserInfo(Long id, String userName, String password, LocalDateTime createTime, LocalDateTime updateTime) {
         this.id = id;
         this.userName = userName;

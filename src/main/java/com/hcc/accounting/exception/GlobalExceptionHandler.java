@@ -1,6 +1,5 @@
 package com.hcc.accounting.exception;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -8,6 +7,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    /**
+     * 错误处理
+     * @param ex ServiceException
+     * @return ResponseEntity
+     */
     @ExceptionHandler(ServiceException.class)
     public ResponseEntity<ErrorResponse> handleServiceException(ServiceException ex) {
         return ResponseEntity.status(ex.getStatusCode())
