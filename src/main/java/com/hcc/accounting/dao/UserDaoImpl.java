@@ -17,4 +17,9 @@ public class UserDaoImpl implements UserDao {
     public UserInfo getUserInfoById(Long id) {
         return userInfoMapper.getUserInfoById(id);
     }
+
+    @Override
+    public UserInfo getUserInfoByUsername(String username) {
+        return userInfoMapper.getUserInfoByUsername(username);
+    }
 }

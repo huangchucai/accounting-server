@@ -22,6 +22,11 @@ public class UserDaoLegacyTest {
             public UserInfo getUserInfoById(Long id) {
                 return userInfo;
             }
+
+            @Override
+            public UserInfo getUserInfoByUsername(String username) {
+                return userInfo;
+            }
         };
 
         // Assert
