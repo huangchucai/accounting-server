@@ -3,11 +3,13 @@ package com.hcc.accounting.manager;
 import com.hcc.accounting.converter.dtb.UserInfoDTBConverter;
 import com.hcc.accounting.dao.UserDao;
 import com.hcc.accounting.model.dao.UserInfo;
+import com.hcc.accounting.service.CustomUserDetailService;
 import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.security.authentication.ProviderManager;
 
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
@@ -25,7 +27,9 @@ public class UserInfoManagerTest {
     void setup() {
         MockitoAnnotations.openMocks(this);
         UserInfoDTBConverter converter = new UserInfoDTBConverter();
-        userManager = new UserManagerImpl(userDao, converter);
+        val userDetailsService = new CustomUserDetailService(userDao);
+        val authenticationManager = new ProviderManager();
+        userManager = new UserManagerImpl(userDao, converter, userDetailsService, authenticationManager);
     }
 
     @Test
